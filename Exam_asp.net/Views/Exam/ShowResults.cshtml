@@ -1,0 +1,44 @@
+﻿@model Exam_asp.net.Models.ResultModel
+
+@{
+    ViewBag.Title = "ShowResults";
+}
+
+<h2>Результаты тестирования</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AllAnswers)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AllRightAnswers)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeOfTesting)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResultInPercent)
+        </th>
+        <th></th>
+    </tr>
+
+<tr>
+    <td>
+        @Html.DisplayFor(model => model.AllAnswers)
+    </td>
+    <td>
+        @Html.DisplayFor(model => model.AllRightAnswers)
+    </td>
+    <td>
+        @Html.DisplayFor(model => model.TimeOfTesting)
+    </td>
+    <td>
+        @Html.DisplayFor(model => model.ResultInPercent)
+    </td>
+</tr>
+
+</table>
+
+<div>@Html.ActionLink("Пройти тестирование", "ShowQuestions")</div>
+<div>@Html.ActionLink("Вывести список результатов за промежуок времени", "ShowResultsInDate")</div>

@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Exam_asp.net.Models.UserResult>
+
+@{
+    ViewBag.Title = "ShowResultsInDate";
+}
+
+<h2>ShowResultsInDate</h2>
+
+@using (Ajax.BeginForm("ShowResultsInDate", "Exam", new AjaxOptions()
+{
+    UpdateTargetId = "result",
+    InsertionMode = InsertionMode.Replace,
+    LoadingElementId = "loading"
+}))
+{
+    <h3>Начальная дата</h3>
+    <input type="text" name="startDate" />
+    <h3>Конечная дата</h3>
+    <input type="text" name="endDate" />
+    <p>
+        <input type="submit" value="Найти"/>
+    </p>
+}
+<div id="loading" style="display:none; color:red">
+    <h2>Идет загрузка</h2>
+</div>
+<div id="result"></div>

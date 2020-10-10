@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Exam_asp.net.Models.UserResult>
+
+@{
+    ViewBag.Title = "UsersResults";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Результаты</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ResultOfDone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResultInPercent)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ResultOfDone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ResultInPercent)
+            </td>
+        </tr>
+    }
+</table>
+<div>@Html.ActionLink("Пройти тестирование", "ShowQuestions")</div>

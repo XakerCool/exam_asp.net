@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Exam_asp.net.Models._Question>
+
+@{
+    ViewBag.Title = "ShowQuestions";
+}
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
+<h2>Тестовые вопросы</h2>
+@using (Html.BeginForm("AddAnswer", "Exam", FormMethod.Post))
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Question)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AnswerType)
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Question)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AnswerType)
+                </td>
+                <td>
+                    <input type="text" name="answer_@item.Id"/>
+                </td>
+            </tr>
+        }
+    </table>
+
+    <h5>Введите своё ФИО</h5>
+    <input type="text" name="userName" value="" />
+    <input type="submit" value="Закончить тестирование" />
+}
+
+<div>@Html.ActionLink("Вывести список результатов за промежуок времени", "ShowResultsInDate")</div>
